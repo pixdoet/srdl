@@ -1,13 +1,10 @@
 <?php
 /*
    Copyright 2021 Hiew Jun Ian
-
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
-
        http://www.apache.org/licenses/LICENSE-2.0
-
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -26,6 +23,20 @@ if (isset($_GET['id'])){
     exit;
 
 }
+else if (isset($_GET['link'])){
+
+    $url = $_GET['link'];
+    parse_str(parse_url($url,PHP_URL_QUERY), $arr); // parse query string
+    $linkid = $arr['v'];
+    $file_name = $linkid . '.mp4';
+    $file_url = 'https://subrock.rocks/dynamic/videos/' . $file_name;
+    header('Content-Type: application/octet-stream');
+    header("Content-Transfer-Encoding: Binary"); 
+    header("Content-disposition: attachment; filename=\"".$file_name."\""); 
+    readfile($file_url);
+    exit;
+}
+//secret shit not showing lmao
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,10 +54,21 @@ if (isset($_GET['id'])){
         </div>
         <div class="formholder">
             <form class="postform" method="get" action="index.php">
-                <label class="idinputlabel">Paste video id (eg: subrock.rocks/watch?v=</b>53vucjYN_49</b></label>
-                <input class="idinput" type="text" name="id">
-                <input type="submit" value="Download!" name="submit">
+                <label class="idinputlabel">Paste video id (eg: 53vucjYN_49)</label><br>
+                <input class="idinput" type="text" name="id"><br>
+                <input type="submit" value="Download!" name="submit"><br>
             </form>
+        </div>
+        <div class="seperator"><h3>OR</h3></div>
+        <div class="linkformholder">
+            <form class="linkform" method="get" action="index.php">
+                <label class="linkinputlabel">Paste video link (eg: https://subrock.rocks/watch?v=</b>53vucjYN_49</b>)MUST INCLUDE http:// OR https://</label><br>
+                <input class="linkinput" type="text" name="link"><br>
+                <input type="submit" value="Download!" name="submit"><br>
+            </form>
+        </div>
+        <div class="copyrightholder">
+            ©2021 <a href="/">Ian Hiew</a>
         </div>
     </body>
 </html>
