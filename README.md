@@ -7,7 +7,6 @@ You can also get a direct download link via https://cleantalk.cf/srdl?id=[VIDEOI
 
 # Self Hosting  
 Make sure you have PHP 7.x or 8.x installed. Then, download the file and put it somewhere in your webserver's document root.  
-Everything should just work out of the box. If something goes wrong, FILE AN ISSUE, NOT EMAIL ME. Emails regarding issues on this matter will be blocked.  
-
+Everything should just work out of the box. If something goes wrong, email me or file an issue. I was a cringe kid don't read the last commit.  
 # License  
 Apache 2.0 license.
