@@ -1,3 +1,5 @@
+Project archived because SubRocks is down :)
+---
 # srdl
 Video downloader for SubRocks. Made with PHP and running on PHP 8.0  
 
